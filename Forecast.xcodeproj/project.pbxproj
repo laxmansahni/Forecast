@@ -14,6 +14,7 @@
 		499422052160BB630060441E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499422032160BB630060441E /* LaunchScreen.storyboard */; };
 		4994220E2160BBDD0060441E /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994220D2160BBDD0060441E /* Forecast.swift */; };
 		499422112160BC500060441E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499422102160BC500060441E /* APIManager.swift */; };
+		49FC09322160D25100FAD3A2 /* Forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 49FC09312160D25100FAD3A2 /* Forecast.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		499422062160BB630060441E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4994220D2160BBDD0060441E /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		499422102160BC500060441E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		49FC09312160D25100FAD3A2 /* Forecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Forecast.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +62,10 @@
 			children = (
 				4994220F2160BC3C0060441E /* API */,
 				4994220C2160BBAF0060441E /* Model */,
+				49FC09302160D25100FAD3A2 /* StubData */,
+				499421FE2160BB610060441E /* Main.storyboard */,
 				499421FA2160BB610060441E /* AppDelegate.swift */,
 				499421FC2160BB610060441E /* ViewController.swift */,
-				499421FE2160BB610060441E /* Main.storyboard */,
 				499422012160BB630060441E /* Assets.xcassets */,
 				499422032160BB630060441E /* LaunchScreen.storyboard */,
 				499422062160BB630060441E /* Info.plist */,
@@ -85,6 +88,15 @@
 			);
 			path = API;
 			sourceTree = "<group>";
+		};
+		49FC09302160D25100FAD3A2 /* StubData */ = {
+			isa = PBXGroup;
+			children = (
+				49FC09312160D25100FAD3A2 /* Forecast.json */,
+			);
+			name = StubData;
+			path = Forecast/StubData;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -144,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FC09322160D25100FAD3A2 /* Forecast.json in Resources */,
 				499422052160BB630060441E /* LaunchScreen.storyboard in Resources */,
 				499422022160BB630060441E /* Assets.xcassets in Resources */,
 				499422002160BB610060441E /* Main.storyboard in Resources */,
