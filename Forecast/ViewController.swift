@@ -10,12 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 private let apiManager = APIManager()
+private var forecastLazy : Forecast?
+private var orderLazy : Order?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         getForecast()
         getOrder()
+
     }
 
 
@@ -32,18 +35,27 @@ extension ViewController {
             guard let forecast = forecast  else { return }
             print("Current Forecast Object:")
             print(forecast)
+            DispatchQueue.main.async {
+                // Update the UI
+                self.forecastLazy = forecast
+            }
         }
     }
     
-    private func getOrder() {
+    private func getOrder()  {
+       // var orderReturned : Order?
         apiManager.getOrder() { (order, error) in
             if let error = error {
-                print("Get forecast error: \(error.localizedDescription)")
+                print("Get order error: \(error.localizedDescription)")
                 return
             }
             guard let order = order  else { return }
             print("Current Order Object:")
             print(order)
+            DispatchQueue.main.async {
+                // Update the UI
+                self.orderLazy = order
+            }
         }
     }
 }

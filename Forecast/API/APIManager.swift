@@ -55,7 +55,7 @@ extension APIManager {
         let urlRequest = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             guard error == nil else {
-                print("Error calling api")
+                print("Error calling api. Server error")
                 return completion(nil, error)
             }
             guard let responseData = data else {
