@@ -10,7 +10,7 @@ import Foundation
 
 class APIManager {
     let stubForecastDataURL = "https://raw.githubusercontent.com/laxmansahni/Forecast/master/Forecast/StubData/Forecast.json"
-    let stubOrderDataURL = "https://raw.githubusercontent.com/laxmansahni/Forecast/master/Forecast/StubData/Forecast.json"
+    let stubOrderDataURL = "https://raw.githubusercontent.com/laxmansahni/Forecast/master/Forecast/StubData/Order.json"
     
     func getForecast(completion: @escaping (_ forecast: Forecast?, _ error: Error?) -> Void) {
         getJSONFromURL(urlString: stubForecastDataURL) { (data, error) in
@@ -29,7 +29,7 @@ class APIManager {
     }
     
     func getOrder(completion: @escaping (_ order: Order?, _ error: Error?) -> Void) {
-        getJSONFromURL(urlString: stubForecastDataURL) { (data, error) in
+        getJSONFromURL(urlString: stubOrderDataURL) { (data, error) in
             guard let data = data, error == nil else {
                 print("Failed to get data")
                 return completion(nil, error)

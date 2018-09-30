@@ -15,6 +15,7 @@ private let apiManager = APIManager()
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         getForecast()
+        getOrder()
     }
 
 
@@ -34,4 +35,15 @@ extension ViewController {
         }
     }
     
+    private func getOrder() {
+        apiManager.getOrder() { (order, error) in
+            if let error = error {
+                print("Get forecast error: \(error.localizedDescription)")
+                return
+            }
+            guard let order = order  else { return }
+            print("Current Order Object:")
+            print(order)
+        }
+    }
 }
