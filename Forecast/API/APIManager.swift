@@ -10,22 +10,39 @@ import Foundation
 
 class APIManager {
     let stubForecastDataURL = "https://raw.githubusercontent.com/laxmansahni/Forecast/master/Forecast/StubData/Forecast.json"
+    let stubOrderDataURL = "https://raw.githubusercontent.com/laxmansahni/Forecast/master/Forecast/StubData/Forecast.json"
     
-//    func getWeather(completion: @escaping (_ weather: CurrentWeather?, _ error: Error?) -> Void) {
-//        getJSONFromURL(urlString: stubDataURL) { (data, error) in
-//            guard let data = data, error == nil else {
-//                print("Failed to get data")
-//                return completion(nil, error)
-//            }
-//            self.createWeatherObjectWith(json: data, completion: { (weather, error) in
-//                if let error = error {
-//                    print("Failed to convert data")
-//                    return completion(nil, error)
-//                }
-//                return completion(weather, nil)
-//            })
-//        }
-//    }
+    func getForecast(completion: @escaping (_ forecast: Forecast?, _ error: Error?) -> Void) {
+        getJSONFromURL(urlString: stubForecastDataURL) { (data, error) in
+            guard let data = data, error == nil else {
+                print("Failed to get data")
+                return completion(nil, error)
+            }
+            self.createForecastObjectWith(json: data, completion: { (forecast, error) in
+                if let error = error {
+                    print("Failed to convert data")
+                    return completion(nil, error)
+                }
+                return completion(forecast, nil)
+            })
+        }
+    }
+    
+    func getOrder(completion: @escaping (_ order: Order?, _ error: Error?) -> Void) {
+        getJSONFromURL(urlString: stubForecastDataURL) { (data, error) in
+            guard let data = data, error == nil else {
+                print("Failed to get data")
+                return completion(nil, error)
+            }
+            self.createOrderObjectWith(json: data, completion: { (order, error) in
+                if let error = error {
+                    print("Failed to convert data")
+                    return completion(nil, error)
+                }
+                return completion(order, nil)
+            })
+        }
+    }
     
 }
 
@@ -50,16 +67,28 @@ extension APIManager {
         task.resume()
     }
     
-//    private func createWeatherObjectWith(json: Data, completion: @escaping (_ data: CurrentWeather?, _ error: Error?) -> Void) {
-//        do {
-//            let decoder = JSONDecoder()
-//            decoder.keyDecodingStrategy = .convertFromSnakeCase
-//            let weather = try decoder.decode(CurrentWeather.self, from: json)
-//            return completion(weather, nil)
-//        } catch let error {
-//            print("Error creating current weather from JSON because: \(error.localizedDescription)")
-//            return completion(nil, error)
-//        }
-//    }
+    private func createForecastObjectWith(json: Data, completion: @escaping (_ data: Forecast?, _ error: Error?) -> Void) {
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let forecast = try decoder.decode(Forecast.self, from: json)
+            return completion(forecast, nil)
+        } catch let error {
+            print("Error creating forecast from JSON because: \(error.localizedDescription)")
+            return completion(nil, error)
+        }
+    }
+    
+    private func createOrderObjectWith(json: Data, completion: @escaping (_ data: Order?, _ error: Error?) -> Void) {
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let forecast = try decoder.decode(Order.self, from: json)
+            return completion(forecast, nil)
+        } catch let error {
+            print("Error creating order from JSON because: \(error.localizedDescription)")
+            return completion(nil, error)
+        }
+    }
 }
 
