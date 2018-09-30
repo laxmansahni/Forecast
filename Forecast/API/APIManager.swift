@@ -9,7 +9,7 @@
 import Foundation
 
 class APIManager {
-    let stubDataURL = "https://raw.githubusercontent.com/cjbatin/Swift4-Decoding-JSON-Using-Codable/master/WeatherForecast/StubData/londonWeather.json"
+    let stubForecastDataURL = "https://raw.githubusercontent.com/laxmansahni/Forecast/master/Forecast/StubData/Forecast.json"
     
 //    func getWeather(completion: @escaping (_ weather: CurrentWeather?, _ error: Error?) -> Void) {
 //        getJSONFromURL(urlString: stubDataURL) { (data, error) in
